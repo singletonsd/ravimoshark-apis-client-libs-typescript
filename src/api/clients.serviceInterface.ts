@@ -39,9 +39,9 @@ export interface ClientsServiceInterface {
     /**
     * Delete one client.
     * Delete one client.
-    * @param id id to delete or search
+    * @param refClient id to delete or search
     */
-    deleteClient(id: number, extraHttpRequestParams?: any): Observable<IdInteger>;
+    deleteClient(refClient: string, extraHttpRequestParams?: any): Observable<IdInteger>;
 
     /**
     * Edit one client.
@@ -53,10 +53,10 @@ export interface ClientsServiceInterface {
     /**
     * Get one client.
     * Get one client.
-    * @param id id to delete or search
+    * @param refClient id to delete or search
     * @param deleted Get all, deleted, not deleted data. Default not deleted.
     */
-    getClientById(id: number, deleted?: Deleted, extraHttpRequestParams?: any): Observable<Clients>;
+    getClientById(refClient: string, deleted?: Deleted, extraHttpRequestParams?: any): Observable<Clients>;
 
     /**
     * Get all clients.

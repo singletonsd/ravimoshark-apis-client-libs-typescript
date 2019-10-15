@@ -31,7 +31,7 @@ import { AddressesServiceInterface }                            from './addresse
 @Injectable()
 export class AddressesService implements AddressesServiceInterface {
 
-    protected basePath = 'http://localhost:8002';
+    protected basePath = 'http://localhost:8000';
     public defaultHeaders = new HttpHeaders();
     public configuration = new Configuration();
 

@@ -31,7 +31,7 @@ import { ClientsServiceInterface }                            from './clients.se
 @Injectable()
 export class ClientsService implements ClientsServiceInterface {
 
-    protected basePath = 'http://localhost:8002';
+    protected basePath = 'http://localhost:8000';
     public defaultHeaders = new HttpHeaders();
     public configuration = new Configuration();
 
@@ -110,17 +110,17 @@ export class ClientsService implements ClientsServiceInterface {
     /**
      * Delete one client.
      * Delete one client.
-     * @param id id to delete or search
+     * @param refClient id to delete or search
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public deleteClient(id: number, observe?: 'body', reportProgress?: boolean): Observable<IdInteger>;
-    public deleteClient(id: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IdInteger>>;
-    public deleteClient(id: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IdInteger>>;
-    public deleteClient(id: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+    public deleteClient(refClient: string, observe?: 'body', reportProgress?: boolean): Observable<IdInteger>;
+    public deleteClient(refClient: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IdInteger>>;
+    public deleteClient(refClient: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IdInteger>>;
+    public deleteClient(refClient: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
-        if (id === null || id === undefined) {
-            throw new Error('Required parameter id was null or undefined when calling deleteClient.');
+        if (refClient === null || refClient === undefined) {
+            throw new Error('Required parameter refClient was null or undefined when calling deleteClient.');
         }
 
         let headers = this.defaultHeaders;
@@ -138,7 +138,7 @@ export class ClientsService implements ClientsServiceInterface {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.delete<IdInteger>(`${this.basePath}/clients/${encodeURIComponent(String(id))}`,
+        return this.httpClient.delete<IdInteger>(`${this.basePath}/clients/${encodeURIComponent(String(refClient))}`,
             {
                 withCredentials: this.configuration.withCredentials,
                 headers: headers,
@@ -198,18 +198,18 @@ export class ClientsService implements ClientsServiceInterface {
     /**
      * Get one client.
      * Get one client.
-     * @param id id to delete or search
+     * @param refClient id to delete or search
      * @param deleted Get all, deleted, not deleted data. Default not deleted.
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public getClientById(id: number, deleted?: Deleted, observe?: 'body', reportProgress?: boolean): Observable<Clients>;
-    public getClientById(id: number, deleted?: Deleted, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Clients>>;
-    public getClientById(id: number, deleted?: Deleted, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Clients>>;
-    public getClientById(id: number, deleted?: Deleted, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+    public getClientById(refClient: string, deleted?: Deleted, observe?: 'body', reportProgress?: boolean): Observable<Clients>;
+    public getClientById(refClient: string, deleted?: Deleted, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Clients>>;
+    public getClientById(refClient: string, deleted?: Deleted, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Clients>>;
+    public getClientById(refClient: string, deleted?: Deleted, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
-        if (id === null || id === undefined) {
-            throw new Error('Required parameter id was null or undefined when calling getClientById.');
+        if (refClient === null || refClient === undefined) {
+            throw new Error('Required parameter refClient was null or undefined when calling getClientById.');
         }
 
 
@@ -233,7 +233,7 @@ export class ClientsService implements ClientsServiceInterface {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.get<Clients>(`${this.basePath}/clients/${encodeURIComponent(String(id))}`,
+        return this.httpClient.get<Clients>(`${this.basePath}/clients/${encodeURIComponent(String(refClient))}`,
             {
                 params: queryParameters,
                 withCredentials: this.configuration.withCredentials,

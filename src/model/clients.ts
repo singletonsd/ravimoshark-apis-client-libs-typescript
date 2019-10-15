@@ -26,6 +26,7 @@ export interface Clients {
     nickname?: string;
     sector?: string;
     state?: string;
+    status?: string;
     stateGroup?: string;
     score?: string;
     typeClient?: string;
