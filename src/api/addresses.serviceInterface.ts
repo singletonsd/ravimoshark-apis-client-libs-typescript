@@ -67,7 +67,7 @@ export interface AddressesServiceInterface {
     * @param filterBy filter data.
     * @param deleted Get all, deleted, not deleted data. Default not deleted.
     * @param metadata If metadata is needed (for pagination controls)
-    * @param refClient Data from a desired contract
+    * @param refClient Data from a desired client
     */
     getAddresses(skip?: number, limit?: number, orderBy?: string, filterBy?: string, deleted?: Deleted, metadata?: boolean, refClient?: string, extraHttpRequestParams?: any): Observable<InlineResponse200>;
 
